@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import ProjectSummary from "./ProjectSummary";
 
 const ProjectList = () => {
@@ -13,4 +15,9 @@ const ProjectList = () => {
     );
 }
 
-export default ProjectList;
+const mapStateToProps = (state, ownProps) => {
+    console.log(state);
+    return state;
+}
+
+export default connect(mapStateToProps)(ProjectList);
