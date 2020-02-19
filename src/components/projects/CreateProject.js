@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 const CreateProject = () => {
+
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
     return (
         <div className="container">
-            <form className="white" >
+            <form className="white" onSubmit={handleSubmit} >
                 <h5 className="grey-text text-darken-3">Create a New Project</h5>
                 <div className="input-field">
-                    <input type="text" id='title' />
+                    <input type="text" id='title' value={title} name="title" onChange={(e) => setTitle(e.target.value)} />
                     <label htmlFor="title">Project Title</label>
                 </div>
                 <div className="input-field">
-                    <textarea id="content" className="materialize-textarea" ></textarea>
+                    <textarea id="contenst" name="content" className="materialize-textarea" onChange={(e) => { setContent(e.target.value) }} value={content}></textarea>
                     <label htmlFor="content">Project Content</label>
                 </div>
                 <div className="input-field">
@@ -19,6 +26,11 @@ const CreateProject = () => {
             </form>
         </div>
     );
+
 }
+
+
+
+
 
 export default CreateProject;
