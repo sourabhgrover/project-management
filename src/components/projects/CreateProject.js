@@ -1,12 +1,20 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { createProject } from "../../actions/projectActions";
 
-const CreateProject = () => {
+
+const CreateProject = (props) => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const projectObj = {
+            title,
+            content
+        }
+        props.createProject(projectObj);
     }
     return (
         <div className="container">
@@ -30,7 +38,4 @@ const CreateProject = () => {
 }
 
 
-
-
-
-export default CreateProject;
+export default connect(null, { createProject })(CreateProject);

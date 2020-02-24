@@ -1,4 +1,4 @@
-
+import { CREATE_PROJECT, CREATE_PROJECT_ERROR } from "../actions/type";
 const intialState = {
     projects: [
         { id: '1', title: 'This is test title1', content: 'blah blah blah' },
@@ -12,6 +12,8 @@ const intialState = {
 
 const projectReducer = (state = intialState, action) => {
     switch (action.type) {
+        case CREATE_PROJECT:
+            return state;
         default:
             return state;
     }
